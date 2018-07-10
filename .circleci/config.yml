@@ -162,7 +162,7 @@ workflows:
   resource_class_jobs:
     triggers:
       - schedule:
-          cron: "* * * * *"
+          cron: "* 5 * * *"
           filters:
             branches:
               only:
