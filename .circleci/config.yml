@@ -157,7 +157,9 @@ workflows:
   version: 2
   resource_class_jobs:
     triggers:
-        <<: *cron_template
+        # <<: *cron_template
+      - schedule:
+          cron: "5 0 0 0 0"
     jobs:
       - small
       - medium
