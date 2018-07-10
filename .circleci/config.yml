@@ -3,6 +3,10 @@ version: 2
 cron_template: &cron_template
   - schedule:
       cron: "5 0 0 0 0"
+      filters:
+            branches:
+              only:
+                - master
 
 resource_job_defaults: &resource_job_defaults
   docker: [{image: 'circleci/ruby:2.4.1'}]
@@ -160,6 +164,10 @@ workflows:
         # <<: *cron_template
       - schedule:
           cron: "5 0 0 0 0"
+          filters:
+            branches:
+              only:
+                - master
     jobs:
       - small
       - medium
