@@ -160,13 +160,6 @@ jobs:
 workflows:
   version: 2
   resource_class_jobs:
-    triggers:
-      - schedule:
-          cron: "* 5 * * *"
-          filters:
-            branches:
-              only:
-                - master
     jobs:
       - small
       - medium
