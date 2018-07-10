@@ -1,5 +1,9 @@
 version: 2
 
+cron_template: &cron_template
+  - schedule:
+      cron: "5 0 0 0 0"
+
 resource_job_defaults: &resource_job_defaults
   docker: [{image: 'circleci/ruby:2.4.1'}]
   steps: [{run: 'echo $CIRCLE_JOB'}]
@@ -152,6 +156,8 @@ jobs:
 workflows:
   version: 2
   resource_class_jobs:
+    triggers:
+      <<: *cron_template
     jobs:
       - small
       - medium
